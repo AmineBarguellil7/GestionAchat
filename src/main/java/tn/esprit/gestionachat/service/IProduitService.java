@@ -1,10 +1,19 @@
 package tn.esprit.gestionachat.service;
 
-import org.springframework.stereotype.Service;
-import tn.esprit.gestionachat.Generic.IGenericService;
-import tn.esprit.gestionachat.entities.Produit;
+
+import tn.esprit.gestionachat.entity.Produit;
+
+import java.util.List;
 
 
-@Service
-public interface IProduitService extends IGenericService<Produit,Long> {
+public interface IProduitService  {
+    List<Produit> retrieveAllProduits();
+
+    Produit addProduit (Produit p, Long idCategorieProduit, Long idStock);
+
+    Produit updateProduit (Produit p, Long idCategorieProduit, Long idStock);
+
+    Produit retrieveProduit(Long id);
+
+    void assignProduitToStock(Long idProduit, Long idStock);
 }

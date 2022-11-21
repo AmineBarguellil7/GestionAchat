@@ -1,10 +1,9 @@
-package tn.esprit.gestionachat.entities;
+package tn.esprit.gestionachat.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.core.type.filter.RegexPatternTypeFilter;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,9 +1,10 @@
 package tn.esprit.gestionachat.service;
 
-import org.springframework.stereotype.Service;
-import tn.esprit.gestionachat.Generic.IGenericServiceImpl;
-import tn.esprit.gestionachat.entities.DetailFacture;
+import org.springframework.beans.factory.annotation.Autowired;
+import tn.esprit.gestionachat.Repo.DetailFactureRepo;
 
-@Service
-public class DetailFactureService extends IGenericServiceImpl<DetailFacture,Long> implements IDetailFactureService{
+
+public class DetailFactureService  implements IDetailFactureService{
+    @Autowired
+    DetailFactureRepo detailFactureRepo;
 }

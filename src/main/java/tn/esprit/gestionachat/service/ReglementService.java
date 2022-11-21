@@ -1,11 +1,13 @@
 package tn.esprit.gestionachat.service;
 
-import org.springframework.stereotype.Service;
-import tn.esprit.gestionachat.Generic.IGenericServiceImpl;
-import tn.esprit.gestionachat.entities.Reglement;
+import org.springframework.beans.factory.annotation.Autowired;
+import tn.esprit.gestionachat.Repo.ReglementRepo;
 
 
 
-@Service
-public class ReglementService extends IGenericServiceImpl<Reglement,Long> implements IReglementService{
+
+public class ReglementService  implements IReglementService{
+
+    @Autowired
+    ReglementRepo reglementRepo;
 }

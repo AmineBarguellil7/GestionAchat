@@ -1,10 +1,10 @@
 package tn.esprit.gestionachat.service;
 
-import tn.esprit.gestionachat.entities.Stock;
+import tn.esprit.gestionachat.entity.Stock;
 
 import java.util.List;
 
-public interface IStockService {
+public interface IStockService  {
     List<Stock> retrieveAllStocks();
 
     Stock addStock(Stock s);

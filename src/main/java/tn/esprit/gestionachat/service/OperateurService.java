@@ -1,10 +1,11 @@
 package tn.esprit.gestionachat.service;
 
-import org.springframework.stereotype.Service;
-import tn.esprit.gestionachat.Generic.IGenericServiceImpl;
-import tn.esprit.gestionachat.entities.Operateur;
+import org.springframework.beans.factory.annotation.Autowired;
+import tn.esprit.gestionachat.Repo.OperateurRepo;
 
 
-@Service
-public class OperateurService extends IGenericServiceImpl<Operateur,Long> implements IOperateurService{
+
+public class OperateurService  implements IOperateurService{
+    @Autowired
+    OperateurRepo operateurRepo;
 }

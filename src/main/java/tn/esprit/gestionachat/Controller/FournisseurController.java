@@ -1,12 +1,36 @@
 package tn.esprit.gestionachat.Controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import tn.esprit.gestionachat.Generic.GenericController;
-import tn.esprit.gestionachat.entities.Fournisseur;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import tn.esprit.gestionachat.entity.Fournisseur;
+import tn.esprit.gestionachat.service.FournisseurService;
+
+import java.util.List;
 
 
 @RestController
 @RequestMapping("/fournisseur")
-public class FournisseurController extends GenericController<Fournisseur,Long> {
+public class FournisseurController  {
+    @Autowired
+    FournisseurService fournisseurService;
+
+    @PostMapping("/addF")
+    public Fournisseur addF(@RequestBody Fournisseur f) {
+        return fournisseurService.addFournisseur(f);
+    }
+
+    @GetMapping("")
+    public List<Fournisseur> readF() {
+        return fournisseurService.retrieveAllFournisseurs();
+    }
+
+    @PutMapping ("/updateF")
+    public void updateF(@RequestBody Fournisseur f) {
+        fournisseurService.updateFournisseur(f);
+    }
+
+    @GetMapping("/read_F")
+    public Fournisseur read_F(@PathVariable Long idF) {
+        return fournisseurService.retrieveFournisseur(idF);
+    }
 }

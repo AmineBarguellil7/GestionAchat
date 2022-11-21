@@ -1,5 +1,6 @@
-package tn.esprit.gestionachat.entities;
+package tn.esprit.gestionachat.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class CategorieProduit {
     private Long idCategorieProduit;
     private String codeProduit;
     private String libelleCategorieProduit;
+    @JsonIgnore
     @OneToMany(mappedBy = "categorieProduit")
     Set<Produit> produits;
 }

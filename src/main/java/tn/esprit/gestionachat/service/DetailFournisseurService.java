@@ -1,9 +1,15 @@
 package tn.esprit.gestionachat.service;
 
-import org.springframework.stereotype.Service;
-import tn.esprit.gestionachat.Generic.IGenericServiceImpl;
-import tn.esprit.gestionachat.entities.DetailFournisseur;
+import org.springframework.beans.factory.annotation.Autowired;
+import tn.esprit.gestionachat.Repo.DetailFournisseurRepo;
+import tn.esprit.gestionachat.entity.DetailFournisseur;
 
-@Service
-public class DetailFournisseurService extends IGenericServiceImpl<DetailFournisseur,Long> implements IDetailFournisseurService{
+
+
+
+public class DetailFournisseurService  implements IDetailFournisseurService{
+
+    @Autowired
+    DetailFournisseurRepo detailFournisseurRepo;
+
 }

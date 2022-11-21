@@ -1,4 +1,4 @@
-package tn.esprit.gestionachat.entities;
+package tn.esprit.gestionachat.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,13 +13,12 @@ import java.util.Set;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Stock {
+public class SecteurActivite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idStock;
-    private Integer qte;
-    private Integer qteMin;
-    private String libelleStock;
-    @OneToMany(mappedBy = "stock")
-    Set<Produit> listProduit;
+    private Long idSecteurActivite;
+    private String codeSecteurActivite;
+    private String libelleSecteurActivite;
+    @ManyToMany(mappedBy = "listSecteur")
+    Set<Fournisseur> listFournisseurs;
 }

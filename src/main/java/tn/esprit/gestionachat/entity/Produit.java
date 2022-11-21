@@ -1,4 +1,4 @@
-package tn.esprit.gestionachat.entities;
+package tn.esprit.gestionachat.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

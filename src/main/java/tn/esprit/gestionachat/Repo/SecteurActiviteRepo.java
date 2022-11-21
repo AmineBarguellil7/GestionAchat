@@ -1,7 +1,8 @@
 package tn.esprit.gestionachat.Repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import tn.esprit.gestionachat.entities.SecteurActivite;
+import tn.esprit.gestionachat.entity.SecteurActivite;
 
-public interface SecteurActiviteRepo extends JpaRepository<SecteurActivite,Integer> {
+
+public interface SecteurActiviteRepo extends JpaRepository<SecteurActivite,Long> {
 }
