@@ -33,4 +33,9 @@ public class FournisseurController  {
     public Fournisseur read_F(@PathVariable Long idF) {
         return fournisseurService.retrieveFournisseur(idF);
     }
+
+    @PutMapping ("/assignSec/{fournisseurId}/{secteurActiviteId}")
+    public void assignSec(@PathVariable Long fournisseurId,@PathVariable Long secteurActiviteId) {
+        fournisseurService.assignSecteurActiviteToFournisseur(fournisseurId,secteurActiviteId);
+    }
 }

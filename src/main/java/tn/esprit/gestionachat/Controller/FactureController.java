@@ -6,6 +6,7 @@ import tn.esprit.gestionachat.entity.Facture;
 import tn.esprit.gestionachat.service.FactureService;
 
 import java.util.List;
+import java.util.Set;
 
 
 @RestController
@@ -19,9 +20,9 @@ public class FactureController  {
         return factureService.retrieveAllFactures();
     }
 
-    @PostMapping("/addFac")
-    public Facture addFac(@RequestBody Facture facture) {
-        return factureService.addFacture(facture);
+    @PostMapping("/addFac/{idFournisseur}")
+    public Facture addFac(@RequestBody Facture facture,@PathVariable Long idFournisseur) {
+        return factureService.addFacture(facture,idFournisseur);
     }
 
     @PutMapping ("/CancelFacture/{idFac}")
@@ -32,5 +33,10 @@ public class FactureController  {
     @GetMapping("/read_Fac/{idFac}")
     public Facture read_Fac(@PathVariable Long idFac) {
         return factureService.retrieveFacture(idFac);
+    }
+
+    @GetMapping("/get/{idFournisseur}")
+    public Set<Facture> getFacturesByFournisseur(@PathVariable Long idFournisseur) {
+        return factureService.getFacturesByFournisseur(idFournisseur);
     }
 }

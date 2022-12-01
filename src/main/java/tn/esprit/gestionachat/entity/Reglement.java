@@ -19,6 +19,7 @@ public class Reglement {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idReglement;
     private float montantRestant;
+    private float montantPaye;
     private boolean payee;
     @Temporal(TemporalType.DATE)
     private Date dateReglement;

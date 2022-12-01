@@ -25,7 +25,7 @@ public class Facture {
     @Temporal(TemporalType.DATE)
     private Date dateDerniereModification;
     private boolean archivee;
-    @OneToMany(mappedBy = "facture",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "facture")
     Set<Reglement> reglements;
     @OneToMany(mappedBy ="factureDetail",cascade = CascadeType.ALL)
     Set<DetailFacture> detailFactures;

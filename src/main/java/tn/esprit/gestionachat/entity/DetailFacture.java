@@ -1,5 +1,7 @@
 package tn.esprit.gestionachat.entity;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +21,9 @@ public class DetailFacture {
     private Integer qteCommandee;
     private float pourcentageRemise;
     private float montantRemise;
-    @ManyToOne
+    private float prixTotalDetail;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     private Facture factureDetail;
     @ManyToOne
     Produit produit;
