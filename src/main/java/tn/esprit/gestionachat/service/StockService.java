@@ -1,11 +1,13 @@
 package tn.esprit.gestionachat.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.gestionachat.Repo.StockRepo;
 import tn.esprit.gestionachat.entity.Stock;
 
 import java.util.List;
+
 
 
 @Service
@@ -38,6 +40,19 @@ public class StockService  implements IStockService {
     public void removeStock(Long id) {
         if (stockRepo.findById(id).isPresent())
             stockRepo.deleteById(id);
+    }
+
+    @Scheduled(cron = "* * 22 * * *")
+    @Override
+    public String retrieveStatusStock() {
+        List<Stock> stocks=this.retrieveAllStocks();
+        String res="";
+        for (Stock stock:stocks) {
+            if (stock.getQte()<stock.getQteMin()) {
+                res=res+stock.toString()+",";
+            }
+        }
+        return res;
     }
 }
 

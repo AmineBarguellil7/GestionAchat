@@ -1,10 +1,7 @@
 package tn.esprit.gestionachat.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -24,4 +21,15 @@ public class Stock {
     @JsonIgnore
     @OneToMany(mappedBy = "stock")
     Set<Produit> listProduit;
+
+    @Override
+    public String toString() {
+        return "Stock{" +
+                "idStock=" + idStock +
+                ", qte=" + qte +
+                ", qteMin=" + qteMin +
+                ", libelleStock='" + libelleStock + '\'' +
+                ", listProduit=" + listProduit +
+                '}';
+    }
 }
