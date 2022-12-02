@@ -15,5 +15,5 @@ public interface IStockService  {
 
     void removeStock(Long id);
 
-    String retrieveStatusStock();
+    void retrieveStatusStock();
 }

@@ -42,27 +42,24 @@ public class StockService  implements IStockService {
             stockRepo.deleteById(id);
     }
 
-    @Scheduled(cron = "* * 22 * * *")
+    @Scheduled(cron = "0 0 22 * * *")
     @Override
-    public String retrieveStatusStock() {
+    public void retrieveStatusStock() {
 
         //without JPQL
         /*List<Stock> stocks=this.retrieveAllStocks();
-        String res="";
         for (Stock stock:stocks) {
             if (stock.getQte()<stock.getQteMin()) {
-                res=res+stock+",";
+             System.out.println(stock);
             }
         }
-        return res;*/
 
-        //with JPQL
+         */
+        //with JPQL(In StockRepo)
         List<Stock> stocks=stockRepo.getAllConcernedStocks();
-        String res="";
         for (Stock stock:stocks) {
-            res=res+stock+" ";
+            System.out.println(stock);
         }
-        return res;
         }
 }
 
