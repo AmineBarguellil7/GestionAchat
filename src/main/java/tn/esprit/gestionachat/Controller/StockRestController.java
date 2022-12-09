@@ -43,4 +43,9 @@ public class StockRestController  {
     public void deletes(@PathVariable Long ids) {
         stockService.removeStock(ids);
     }
+
+    @GetMapping("/retrieve")
+    public void retrieveStatusStock() {
+        stockService.retrieveStatusStock();
+    }
 }

@@ -19,7 +19,7 @@ public class Stock {
     private Integer qteMin;
     private String libelleStock;
     @JsonIgnore
-    @OneToMany(mappedBy = "stock")
+    @OneToMany(mappedBy = "stock",fetch = FetchType.EAGER)
     Set<Produit> listProduit;
 
     @Override

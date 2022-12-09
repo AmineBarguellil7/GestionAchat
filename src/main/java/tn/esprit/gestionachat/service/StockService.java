@@ -1,5 +1,7 @@
 package tn.esprit.gestionachat.service;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -42,6 +44,7 @@ public class StockService  implements IStockService {
             stockRepo.deleteById(id);
     }
 
+    Logger log= LoggerFactory.getLogger(StockService.class);
     @Scheduled(cron = "0 0 22 * * *")
     @Override
     public void retrieveStatusStock() {
@@ -50,16 +53,16 @@ public class StockService  implements IStockService {
         /*List<Stock> stocks=this.retrieveAllStocks();
         for (Stock stock:stocks) {
             if (stock.getQte()<stock.getQteMin()) {
-             System.out.println(stock);
+                log.info("stock: "+stock);
             }
-        }
+        }*/
 
-         */
+
         //with JPQL(In StockRepo)
         List<Stock> stocks=stockRepo.getAllConcernedStocks();
         for (Stock stock:stocks) {
-            System.out.println(stock);
+            log.info("stock: "+stock);
         }
-        }
+       }
 }
 
